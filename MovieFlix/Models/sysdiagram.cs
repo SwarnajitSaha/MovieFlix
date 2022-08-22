@@ -12,17 +12,12 @@ namespace MovieFlix.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MovieList
+    public partial class sysdiagram
     {
-        public int movieID { get; set; }
-        public string movieName { get; set; }
-        public Nullable<System.DateTime> reliseDate { get; set; }
-        public Nullable<int> rating { get; set; }
-        public string trailerLink { get; set; }
-        public string moviePoster { get; set; }
-        public string movieLink { get; set; }
-        public string moivePrice { get; set; }
-        public string detailesPoster { get; set; }
-        public string movieDetailes { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

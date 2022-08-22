@@ -7,36 +7,21 @@ using System.Web.Mvc;
 
 namespace MovieFlix.Controllers
 {
-    public class HomeController : Controller
+    public class LogInController : Controller
     {
         MovieFlixEntities db = new MovieFlixEntities();
-        
-        // GET: Home
+        // GET: LogIn
         public ActionResult Index()
         {
-            return View();
+            return View("Home");
         }
-        public ActionResult Home()
-        {
-            //if (Session["login"].Equals("yes"))
-            //{
-            //    ViewBag.userId = Session["userId"];
-            //}
-            //else
-                ViewBag.userId = 1;
-
-            string sql = "select * from MovieList";
-            List<MovieList> movielist = db.MovieLists.SqlQuery(sql).ToList();
-            ViewBag.movielist = movielist;
-            return View();
-        }
-        public ActionResult LoginPage1()
+        public ActionResult LoginPage()
         {
             ViewBag.error = "";
             return View();
         }
         [HttpPost]
-        public ActionResult LoginPage1([Bind(Include = "email , passwords, userType")] User user)
+        public ActionResult LoginPage([Bind(Include = "email , passwords, userType")] User user)
         {
             ViewBag.person = "nobody";
             if (ModelState.IsValid)
@@ -55,10 +40,10 @@ namespace MovieFlix.Controllers
 
                     Session["login"] = "yes";
                     Session["userId"] = user1.userId;
+
                     // ID_pass ids = new ID_pass { userId = user.userId };
 
-                    return RedirectToAction("Home", "Home");
-                    //return View("~/Views/Home/Home.cshtml");
+                    return View("~/Views/Home/Home.cshtml");
                     //return RedirectToAction("Home", "HomeController", new { userId = user.userId });
 
                 }
@@ -67,12 +52,50 @@ namespace MovieFlix.Controllers
                     ViewBag.person = "admin";
                     ViewBag.error = "";
                     return View("~/Views/Home/Home.cshtml");
-                   // return RedirectToAction("Home", "HomeController");
+                  //  return RedirectToAction("Home", "HomeController");
                 }
 
             }
             return View();
 
+        }
+
+
+        public ActionResult RegisterPage()
+        {
+            ViewBag.notMatch = "";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RegisterPage([Bind(Include = "email ,name, passwords, confirmPass")] User1 user1)
+        {
+            ViewBag.notMatch = "";
+            if (user1.passwords!=user1.confirmPass)
+            {
+                ViewBag.notMatch = "Password Did't Match, Try Again.";
+                return View();
+            }
+            else if(user1.email!=""&& user1.name != "" && user1.passwords != "" && user1.confirmPass != "" )
+            {
+                if (ModelState.IsValid)
+                {
+                    User user = new User();
+                    user.email = user1.email;
+                    user.name = user1.name; 
+                    user.passwords = user1.passwords;
+
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    ViewBag.notMatch = "Account Registation Done.";
+                    return View();
+                }
+            }
+            else
+            {
+                
+                return View();
+            }
+            return View();
         }
     }
 }

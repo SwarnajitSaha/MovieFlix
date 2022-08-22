@@ -12,17 +12,11 @@ namespace MovieFlix.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MovieList
+    public partial class Comment
     {
-        public int movieID { get; set; }
-        public string movieName { get; set; }
-        public Nullable<System.DateTime> reliseDate { get; set; }
-        public Nullable<int> rating { get; set; }
-        public string trailerLink { get; set; }
-        public string moviePoster { get; set; }
-        public string movieLink { get; set; }
-        public string moivePrice { get; set; }
-        public string detailesPoster { get; set; }
-        public string movieDetailes { get; set; }
+        public int commentId { get; set; }
+        public Nullable<int> userId { get; set; }
+        public Nullable<int> movieId { get; set; }
+        public string openion { get; set; }
     }
 }

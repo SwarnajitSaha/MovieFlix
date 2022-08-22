@@ -16,8 +16,9 @@ namespace MovieFlix
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+               // url: "{controller}/{action}/{ movieId }/{ userId }",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            ); 
         }
     }
 }
