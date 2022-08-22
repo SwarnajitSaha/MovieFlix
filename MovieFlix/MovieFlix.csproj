@@ -191,12 +191,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\MovieDetailesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ActorList.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -214,13 +220,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\movieID.cs" />
+    <Compile Include="Models\ID_pass.cs" />
     <Compile Include="Models\MovieList.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Openion.cs" />
+    <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\User1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -244,6 +255,12 @@
     <Content Include="Views\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\MovieDetailes\Detailes.cshtml" />
+    <Content Include="Views\LogIn\LoginPage.cshtml" />
+    <Content Include="Views\LogIn\RegisterPage.cshtml" />
+    <Content Include="Views\_LayoutPageAdmin.cshtml" />
+    <Content Include="Views\Movie\MovieAdd.cshtml" />
+    <Content Include="Views\Home\LoginPage1.cshtml" />
+    <Content Include="Views\Comment\Detailes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -5,8 +5,9 @@ using System.Web;
 
 namespace MovieFlix.Models
 {
-    public class movieID
+    public class ID_pass
     {
         public int movieId { get; set; } 
+        public int userId { get; set; } 
     }
 }
