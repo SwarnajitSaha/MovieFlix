@@ -18,5 +18,6 @@ namespace MovieFlix.Models
         public Nullable<int> userId { get; set; }
         public Nullable<int> movieId { get; set; }
         public string openion { get; set; }
+        public string userName { get; set; }
     }
 }

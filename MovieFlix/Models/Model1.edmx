@@ -18,6 +18,7 @@
           </Key>
           <Property Name="commentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userId" Type="int" />
+          <Property Name="userName" Type="varchar" MaxLength="255" />
           <Property Name="movieId" Type="int" />
           <Property Name="openion" Type="varchar" MaxLength="2000" />
         </EntityType>
@@ -125,6 +126,7 @@
           <Property Name="userId" Type="Int32" />
           <Property Name="movieId" Type="Int32" />
           <Property Name="openion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="userName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -181,6 +183,7 @@
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="MovieFlixModel.Comment">
               <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="userName" ColumnName="userName" />
                 <ScalarProperty Name="openion" ColumnName="openion" />
                 <ScalarProperty Name="movieId" ColumnName="movieId" />
                 <ScalarProperty Name="userId" ColumnName="userId" />

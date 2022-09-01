@@ -32,27 +32,32 @@ namespace MovieFlix.Controllers
                 List<MovieList> movielist = db.MovieLists.SqlQuery(sql).ToList();
                 ViewBag.movielist = movielist;
 
+                    
 
                 if (user1 != null)
                 {
                     ViewBag.error = "";
                     ViewBag.person = "user";
-
-                    Session["login"] = "yes";
-                    Session["userId"] = user1.userId;
-
-                    // ID_pass ids = new ID_pass { userId = user.userId };
+Variable.user_login = 1;
+                    Variable.user_Id = user1.userId;
+                    Variable.user_name = user1.name;
+                    
 
                     return View("~/Views/Home/Home.cshtml");
-                    //return RedirectToAction("Home", "HomeController", new { userId = user.userId });
+                    
 
                 }
                 else if (admin != null)
                 {
+                    
+                    Variable.user_login = 1;
+                    Variable.user_Id = admin.userId;
+                    Variable.user_name = admin.name;
+
                     ViewBag.person = "admin";
                     ViewBag.error = "";
                     return View("~/Views/Home/Home.cshtml");
-                  //  return RedirectToAction("Home", "HomeController");
+                
                 }
 
             }

@@ -23,7 +23,7 @@ namespace MovieFlix.Controllers
             //    ViewBag.userId = Session["userId"];
             //}
             //else
-                ViewBag.userId = 1;
+                ViewBag.userId = 2;
 
             string sql = "select * from MovieList";
             List<MovieList> movielist = db.MovieLists.SqlQuery(sql).ToList();
@@ -68,6 +68,10 @@ namespace MovieFlix.Controllers
                     ViewBag.error = "";
                     return View("~/Views/Home/Home.cshtml");
                    // return RedirectToAction("Home", "HomeController");
+                }
+                else
+                {
+                    ViewBag.error = "Invalid Email or Password";
                 }
 
             }

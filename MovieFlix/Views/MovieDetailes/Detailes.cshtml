@@ -92,7 +92,7 @@
                                     <img src="img/anime/review-1.jpg" alt="">
                                 </div>
                                 <div class="anime__review__item__text">
-                                    <h6>@x.userId - <span>@*1 Hour ago*@</span></h6>
+                                    <h6>@x.userName<span>@*1 Hour ago*@</span></h6>
                                     <p>
                                        @x.openion
                                     </p>
@@ -154,10 +154,12 @@
                             <h5>Your Comment</h5>
                         </div>
                         <form action="~/Comment/Detailes" method="post">
-                            <textarea placeholder="Your Comment" name="openion"></textarea>
-
+                            
+                            <input type="hidden" name="userId" value="@Variable.user_Id" />
+                            
+                            <input type="hidden" name="userName" value="@Variable.user_name" /> 
                             <input type="hidden" name="movieId" value="@ViewBag.movieDetailes.movieID" />
-                            <input type="hidden" name="userId" value="1" />
+                            <textarea placeholder="Your Comment" name="openion"></textarea>
 
                             <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
                         </form>

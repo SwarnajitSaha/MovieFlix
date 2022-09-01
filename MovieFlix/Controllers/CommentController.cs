@@ -17,10 +17,13 @@ namespace MovieFlix.Controllers
         }
 
         [HttpPost]
-        public ActionResult Detailes([Bind(Include = "movieId ,userId , openion")] Comment comment)
+        public ActionResult Detailes([Bind(Include = "userId, userName ,movieId , openion")] Comment comment)
         {
-
-            if (ModelState.IsValid)
+            if(Variable.user_login==0)
+            {
+                return Content("You have not Login yet");
+            }
+            else if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);
                 db.SaveChanges();
@@ -34,6 +37,7 @@ namespace MovieFlix.Controllers
 
                 return View("~/Views/MovieDetailes/Detailes.cshtml");
             }
+           
             return View("~/Views/MovieDetailes/Detailes.cshtml");
         }
     }
