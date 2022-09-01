@@ -197,6 +197,7 @@
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\MovieDetailesController.cs" />
+    <Compile Include="Controllers\VideoPlayController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -263,6 +264,7 @@
     <Content Include="Views\Movie\MovieAdd.cshtml" />
     <Content Include="Views\Home\LoginPage1.cshtml" />
     <Content Include="Views\Comment\Detailes.cshtml" />
+    <Content Include="Views\VideoPlay\VideoPlay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

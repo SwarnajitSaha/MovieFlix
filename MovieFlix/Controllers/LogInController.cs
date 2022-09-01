@@ -17,6 +17,7 @@ namespace MovieFlix.Controllers
         }
         public ActionResult LoginPage()
         {
+            Variable.user_login = 0;
             ViewBag.error = "";
             return View();
         }
@@ -38,7 +39,7 @@ namespace MovieFlix.Controllers
                 {
                     ViewBag.error = "";
                     ViewBag.person = "user";
-Variable.user_login = 1;
+                    Variable.user_login = 1;
                     Variable.user_Id = user1.userId;
                     Variable.user_name = user1.name;
                     
