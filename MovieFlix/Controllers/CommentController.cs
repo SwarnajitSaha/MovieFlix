@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 
 namespace MovieFlix.Controllers
 {
@@ -17,7 +18,7 @@ namespace MovieFlix.Controllers
         }
 
         [HttpPost]
-        public ActionResult Detailes([Bind(Include = "userId, userName ,movieId , openion")] Comment comment)
+        public ActionResult Detailes([Bind(Include = "userId, userName ,movieId , openion")] Comment1 comment)
         {
             if(Variable.user_login==0)
             {
@@ -25,11 +26,11 @@ namespace MovieFlix.Controllers
             }
             else if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                db.Comment1.Add(comment);
                 db.SaveChanges();
 
 
-                List<Comment> com = db.Comments.Where(x => x.movieId==comment.movieId).ToList();
+                List<Comment1> com = db.Comment1.Where(x => x.movieId==comment.movieId).ToList();
                 ViewBag.com = com;
 
                 MovieList movieDetailes = db.MovieLists.Where(x => x.movieID == comment.movieId).FirstOrDefault();

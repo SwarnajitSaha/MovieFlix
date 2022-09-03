@@ -70,7 +70,10 @@
                                 </div>
                             </div>
                             <div class="anime__details__btn">
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
+                                <div style="display : none">
+                                    @Variable.movieLink=@ViewBag.movieDetailes.movieLink
+                                </div>
+                                <a href=@Url.Action("BuyMovie","Buy") class="follow-btn"><i class="fa fa-heart-o"></i> Buy </a>
                                 <a href=@Url.Action("VideoPlay","VideoPlay") class="watch-btn">
                                     <span>Watch Now</span> <i class="fa fa-angle-right"></i>
                                 </a>
@@ -88,9 +91,9 @@
                         @foreach (var x in ViewBag.com)
                         {
                             <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
+                                @*<div class="anime__review__item__pic">
                                     <img src="img/anime/review-1.jpg" alt="">
-                                </div>
+                                </div>*@
                                 <div class="anime__review__item__text">
                                     <h6>@x.userName<span>@*1 Hour ago*@</span></h6>
                                     <p>

@@ -23,7 +23,7 @@ namespace MovieFlix.Controllers
             //    ViewBag.userId = Session["userId"];
             //}
             //else
-                ViewBag.userId = 2;
+               
 
             string sql = "select * from MovieList";
             List<MovieList> movielist = db.MovieLists.SqlQuery(sql).ToList();

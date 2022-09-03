@@ -50,6 +50,11 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System.Activities" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -69,6 +74,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -171,6 +177,7 @@
     <Content Include="img\trending\trend-5.jpg" />
     <Content Include="img\trending\trend-6.jpg" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\index.js" />
     <Content Include="js\jquery-3.3.1.min.js" />
     <Content Include="js\jquery.nice-select.min.js" />
     <Content Include="js\jquery.slicknav.js" />
@@ -191,12 +198,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApproveVariables.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BuyController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\MovieDetailesController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\VideoPlayController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,7 +214,7 @@
     <Compile Include="Models\ActorList.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Comment.cs">
+    <Compile Include="Models\Comment1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -227,6 +237,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Openion.cs" />
+    <Compile Include="Models\payment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -254,6 +267,9 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="css\style.scss" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="fonts\.DS_Store" />
     <None Include="packages.config" />
     <Content Include="Views\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
@@ -265,6 +281,10 @@
     <Content Include="Views\Home\LoginPage1.cshtml" />
     <Content Include="Views\Comment\Detailes.cshtml" />
     <Content Include="Views\VideoPlay\VideoPlay.cshtml" />
+    <Content Include="Views\Buy\BuyMovie.cshtml" />
+    <Content Include="Views\Permission\Permission_request.cshtml" />
+    <Content Include="scss\.DS_Store" />
+    <Content Include="scss\style.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

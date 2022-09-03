@@ -27,7 +27,8 @@ namespace MovieFlix.Controllers
         {
 
 
-            List<Comment> com = db.Comments.Where(x => x.movieId == id.movieID).ToList();
+            //  List<Comment> com = db.Comments.Where(x => x.movieId == id.movieID).ToList();
+            List<Comment1> com = db.Comment1.Where(x => x.movieId == id.movieID).ToList();
             ViewBag.com = com;
             var movieId = id.movieID;
             ID_pass ids = new ID_pass()
@@ -40,6 +41,11 @@ namespace MovieFlix.Controllers
             {
                 MovieList movieDetailes = db.MovieLists.Where(x => x.movieID == id.movieID).FirstOrDefault();
                 ViewBag.movieDetailes = movieDetailes;
+                Variable.purchaseMovieID =Convert.ToString(id.movieID);
+                Variable.movieName = movieDetailes.movieName;
+                Variable.moviePrice = movieDetailes.moivePrice;
+                Variable.purchaseMovieID =Convert.ToString(movieDetailes.movieID);
+                Variable.movieLink = movieDetailes.movieLink;
                 ViewBag.ids = ids;
                 return View();
             }
