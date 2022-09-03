@@ -14,6 +14,12 @@ namespace MovieFlix.Models
     
     public partial class MovieList
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MovieList()
+        {
+            this.payments = new HashSet<payment>();
+        }
+    
         public int movieID { get; set; }
         public string movieName { get; set; }
         public Nullable<System.DateTime> reliseDate { get; set; }
@@ -24,5 +30,8 @@ namespace MovieFlix.Models
         public string moivePrice { get; set; }
         public string detailesPoster { get; set; }
         public string movieDetailes { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<payment> payments { get; set; }
     }
 }

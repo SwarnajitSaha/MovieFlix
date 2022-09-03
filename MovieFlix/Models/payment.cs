@@ -12,11 +12,16 @@ namespace MovieFlix.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Comment
+    public partial class payment
     {
-        public int commentId { get; set; }
+        public int paymentId { get; set; }
         public Nullable<int> userId { get; set; }
         public Nullable<int> movieId { get; set; }
-        public string openion { get; set; }
+        public string TransId { get; set; }
+        public string Permisson { get; set; }
+        public string mobileNo { get; set; }
+    
+        public virtual MovieList MovieList { get; set; }
+        public virtual User User { get; set; }
     }
 }

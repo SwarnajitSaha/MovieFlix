@@ -29,6 +29,7 @@ namespace MovieFlix.Models
         public virtual DbSet<MovieList> MovieLists { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<payment> payments { get; set; }
+        public virtual DbSet<Comment1> Comment1 { get; set; }
     }
 }
