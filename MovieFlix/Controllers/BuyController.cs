@@ -44,8 +44,10 @@ namespace MovieFlix.Controllers
         public ActionResult BuyMovie([Bind(Include = "userId,movieId,mobileNo ,TransId, permisson")] payment pay)
         {
 
-  
-               if (ModelState.IsValid)
+            if (pay.mobileNo != " " && Regex.IsMatch(pay.mobileNo, @"^[0-9]+$") && pay.TransId!=" " )
+            {
+                      
+                if (ModelState.IsValid)
                {
                 db.payments.Add(pay);
                 db.SaveChanges();
@@ -59,7 +61,18 @@ namespace MovieFlix.Controllers
                     "    </script>");
 
                }
+
+            }else
+            {
+
+             Variable.paymentErrorPhn = "Invalid Phone Number and Transaction ID";
+                return View();
+            }
             
+            
+
+  
+               
             
             return View();
         }

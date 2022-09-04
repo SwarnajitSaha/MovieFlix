@@ -83,7 +83,7 @@
                             {
 
 
-                                    <div class="card" style="width: 16rem;margin-right:30px;margin-top:30px;">
+                                    <div class="card" style="width: 16rem; margin-right: 30px; margin-top: 30px; background-color: #00022e ">
                                         <img src=@String.Concat(s1, x.moviePoster) style="width:255px; height:250px;" alt="image load Failed">
 
                                         <div class="card-body">
@@ -94,6 +94,7 @@
                                             <form action="~/MovieDetailes/Detailes" method="post">
 
                                                 <input type="hidden" name="movieID" value="@x.movieID" />
+                                               
                                                 <input type="hidden" name="moivePrice" value="@ViewBag.userId " />
 
                                                 <button type="submit" class="btn btn-danger">Watch More</button>

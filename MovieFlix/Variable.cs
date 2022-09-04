@@ -20,7 +20,9 @@ namespace MovieFlix
         public static string detailesPoster = "";
         public static string moviedeff = "";
 
-      
-
+        public static string errorLonin = "";
+        public static string commentError ="";
+        public static string paymentErrorPhn = "";
+        public static string paymentErrortx = "";
     }
 }

@@ -20,25 +20,27 @@ namespace MovieFlix.Controllers
         [HttpPost]
         public ActionResult Detailes([Bind(Include = "userId, userName ,movieId , openion")] Comment1 comment)
         {
-            if(Variable.user_login==0)
-            {
-                return Content("You have not Login yet");
+
+
+            MovieList movieDetailes = db.MovieLists.Where(x => x.movieID == comment.movieId).FirstOrDefault();
+            ViewBag.movieDetailes = movieDetailes;
+
+            if (Variable.user_login==0)
+            {            
+                List<Comment1> com = db.Comment1.Where(x => x.movieId == comment.movieId).ToList();
+                ViewBag.com = com;
+                Variable.commentError="Sorry! you have to login First";
+                return View("~/Views/MovieDetailes/Detailes.cshtml");
             }
             else if (ModelState.IsValid)
             {
                 db.Comment1.Add(comment);
                 db.SaveChanges();
-
-
-                List<Comment1> com = db.Comment1.Where(x => x.movieId==comment.movieId).ToList();
+                List<Comment1> com = db.Comment1.Where(x => x.movieId == comment.movieId).ToList();
                 ViewBag.com = com;
-
-                MovieList movieDetailes = db.MovieLists.Where(x => x.movieID == comment.movieId).FirstOrDefault();
-                ViewBag.movieDetailes = movieDetailes;
-
                 return View("~/Views/MovieDetailes/Detailes.cshtml");
             }
-           
+        
             return View("~/Views/MovieDetailes/Detailes.cshtml");
         }
     }
