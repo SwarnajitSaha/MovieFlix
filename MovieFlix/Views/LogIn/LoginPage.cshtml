@@ -6,7 +6,7 @@
 
 
 
- Login Section Begin 
+@*Login Section Begin*@
 <section class="login spad">
     <div class="container">
         <div class="row">
@@ -18,11 +18,11 @@
                     <form action="~/LogIn/LoginPage" method="post">
 
                         <div class="input__item">
-                            <input type="text" placeholder="Email address" name="email">
+                            <input type="text" placeholder="Email address" name="email" value="">
                             <span class="icon_mail"></span>
                         </div>
                         <div class="input__item">
-                            <input type="password" placeholder="Password" name="passwords">
+                            <input type="password" placeholder="Password" name="passwords" value="">
                             <span class="icon_lock"></span>
                         </div>
 
@@ -33,20 +33,25 @@
                             </select>
 
                         </div>
+                        @if (Variable.errorLonin != "")
+                        {
+                            <h6 class="text-danger"style="margin-top:5px;">@Variable.errorLonin</h6>
+                        }
+
                         <button type="submit" class="site-btn">Login Now</button>
 
 
                     </form>
-                    <a href="#" class="forget_pass">Forgot Your Password?</a>
-                    <h6 class="text-danger" style="margin-top:5px">@ViewBag.error</h6>
-                </div> 
-                
+                    @*<a href="#" class="forget_pass">Forgot Your Password?</a>*@
+
+                </div>
+
             </div>
             <div class="col-lg-6">
                 <div class="login__register">
                     <h3>Dont’t Have An Account?</h3>
 
-                    <p href="#" class="primary-btn">@Html.ActionLink("Register Now", "RegisterPage","LogIn")</p>
+                    <p href="#" class="primary-btn">@Html.ActionLink("Register Now", "RegisterPage", "LogIn")</p>
                 </div>
             </div>
         </div>

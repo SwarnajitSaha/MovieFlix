@@ -18,31 +18,38 @@ namespace MovieFlix.Controllers
         public ActionResult LoginPage()
         {
             Variable.user_login = 0;
-            ViewBag.error = "";
+            Variable.errorLonin = "";
+          
+            Session["LogIn"] = "over";
             return View();
+            
         }
         [HttpPost]
         public ActionResult LoginPage([Bind(Include = "email , passwords, userType")] User user)
         {
             ViewBag.person = "nobody";
+
             if (ModelState.IsValid)
             {
+                
                 User admin = db.Users.Where(x => x.email == user.email && x.passwords == user.passwords && x.userType == "admin").FirstOrDefault();
                 User user1 = db.Users.Where(x => x.email == user.email && x.passwords == user.passwords && x.userType == "user").FirstOrDefault();
                 string sql = "select * from MovieList";
                 List<MovieList> movielist = db.MovieLists.SqlQuery(sql).ToList();
                 ViewBag.movielist = movielist;
 
-                    
+                Variable.commentError = "";
 
                 if (user1 != null)
                 {
-                    ViewBag.error = "";
+                    Variable.errorLonin = "";
                     ViewBag.person = "user";
                     Variable.user_login = 1;
                     Variable.user_Id = user1.userId;
                     Variable.user_name = user1.name;
-                    
+                    Session["LogIn"] ="start";
+                    Variable.commentError = "";
+
 
                     return View("~/Views/Home/Home.cshtml");
                     
@@ -54,13 +61,18 @@ namespace MovieFlix.Controllers
                     Variable.user_login = 1;
                     Variable.user_Id = admin.userId;
                     Variable.user_name = admin.name;
-
+                    Session["LogIn"] = "start";
                     ViewBag.person = "admin";
-                    ViewBag.error = "";
+                    Variable.errorLonin = "";
+                    Variable.commentError = "";
                     return View("~/Views/Home/Home.cshtml");
                 
                 }
-
+                else
+                {
+                    Variable.errorLonin = "Invalid Email or Password!";
+                    return View();
+                }
             }
             return View();
 

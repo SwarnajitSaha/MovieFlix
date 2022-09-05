@@ -22,12 +22,16 @@ namespace MovieFlix.Controllers
         [HttpPost]
         public ActionResult MovieAdd([Bind(Include = "movieName , reliseDate, trailerLink, movieDetailes,moviePoster, detailesPoster, moviePrice")] MovieList movie)
         {
+            if(movie.movieName!=" ")
+            {
             if(ModelState.IsValid)
             {
                 db.MovieLists.Add(movie);
                 db.SaveChanges();
                 ViewBag.msg = "";
                 return View();
+            }
+            return View();
             }
             return View();
         }

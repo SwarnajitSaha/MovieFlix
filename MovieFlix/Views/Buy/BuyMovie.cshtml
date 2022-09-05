@@ -44,13 +44,19 @@
                         <input type="hidden" placeholder="" name="movieId" value="@Variable.purchaseMovieID">
 
                         <div class="input__item">
-                            <input type="text" placeholder="Phone Number" name="mobileNo">
+                            <input type="text" placeholder="Phone Number" name="mobileNo" value=" ">
                             <span class="icon_mail"></span>
+
                         </div>
                         <div class="input__item">
-                            <input type="text" placeholder="TxID" name="TransId">
+                            <input type="text" placeholder="TxID" name="TransId" value=" ">
                             <span class="icon_lock"></span>
+
                         </div>
+                        @if (Variable.paymentErrorPhn != "")
+                        {
+                            <h6 class="text-danger" style="margin-top:5px;">@Variable.paymentErrorPhn</h6>
+                        }
                         <input type="hidden" placeholder="" name="Permisson" value="Yes">
 
 

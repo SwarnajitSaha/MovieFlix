@@ -17,7 +17,8 @@ namespace MovieFlix.Controllers
         }
         public ActionResult Detailes()
         {
-
+            Variable.paymentErrorPhn = "";
+            Variable.paymentErrortx = "";
             return View();
 
         }
@@ -28,7 +29,12 @@ namespace MovieFlix.Controllers
 
 
             //  List<Comment> com = db.Comments.Where(x => x.movieId == id.movieID).ToList();
+            Variable.paymentErrorPhn = "";
+            Variable.paymentErrortx = "";
+
             List<Comment1> com = db.Comment1.Where(x => x.movieId == id.movieID).ToList();
+
+          
             ViewBag.com = com;
             var movieId = id.movieID;
             ID_pass ids = new ID_pass()
@@ -40,6 +46,7 @@ namespace MovieFlix.Controllers
             if (ModelState.IsValid)
             {
                 MovieList movieDetailes = db.MovieLists.Where(x => x.movieID == id.movieID).FirstOrDefault();
+               
                 ViewBag.movieDetailes = movieDetailes;
                 Variable.purchaseMovieID =Convert.ToString(id.movieID);
                 Variable.movieName = movieDetailes.movieName;
